@@ -5,6 +5,11 @@
   "projects": {
     "helsinki-ui": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/helsinki-ui",
       "sourceRoot": "projects/helsinki-ui/src",
       "prefix": "hel",

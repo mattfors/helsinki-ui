@@ -1,6 +1,12 @@
 import { Routes } from '@angular/router';
 import { HelRouteStepperComponent, HelRouteTableComponent } from '../../../helsinki-ui/src';
-import { PICK_DATA, PICK_STEPPER_DEF, PICKS_COL_DEF, simpleDataResolver } from './+state/data';
+import {
+  PICK_DATA,
+  PICK_STEPPER_DEF,
+  PICKS_COL_DEF,
+  simpleDataResolver,
+  STOCK_REPLENISHMENTS_COL_DEF, STOCK_REPLENISHMENTS_DATA, STOCK_REPLENISHMENTS_STEPPER_DEF
+} from './+state/data';
 
 export const routes: Routes = [
   {
@@ -26,5 +32,39 @@ export const routes: Routes = [
     resolve: {
       record: simpleDataResolver('pickId', PICK_DATA)
     }
-  }
+  },
+  {
+    path: 'deposits',
+    component: HelRouteTableComponent,
+    title: 'Deposit',
+    data: {
+      colDefs: PICKS_COL_DEF,
+      dataSource: PICK_DATA.filter(p => p['status'] === 'Deposit'),
+      showInMenu: true
+    }
+  },
+  {
+    path: 'replenishments',
+    component: HelRouteTableComponent,
+    title: 'Replenish',
+    data: {
+      colDefs: STOCK_REPLENISHMENTS_COL_DEF,
+      dataSource: STOCK_REPLENISHMENTS_DATA,
+      routeField: 'replenishmentId',
+      showInMenu: true
+    }
+  },
+  {
+    path: 'replenishments/:replenishmentId',
+    component: HelRouteStepperComponent,
+    data: {
+      stepperDef: STOCK_REPLENISHMENTS_STEPPER_DEF,
+      stepperCompleteCallback: (record: Record<string, any>) => {
+        record['status'] = 'Complete';
+      }
+    },
+    resolve: {
+      record: simpleDataResolver('replenishmentId', STOCK_REPLENISHMENTS_DATA)
+    }
+  },
 ];

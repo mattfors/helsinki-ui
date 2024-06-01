@@ -48,6 +48,32 @@ export const PICK_STEPPER_DEF: HelStepperDef = {
   ]
 };
 
+export const STOCK_REPLENISHMENTS_DATA: any[] = [
+  {replenishmentId: 0, aisleNumber: 3, bayNumber: 14, location: '03-14-06', productName: 'Sour Pickles', quantity: 10, status: 'Ready'},
+  {replenishmentId: 1, aisleNumber: 5, bayNumber: 12, location: '05-11-01', productName: 'Bread', quantity: 15, status: 'Ready'},
+];
+
+export const STOCK_REPLENISHMENTS_COL_DEF: HelColDef[] = [
+  { field: 'replenishmentId', headerName: 'Id' },
+  { field: 'aisleNumber', headerName: 'Aisle' },
+  { field: 'bayNumber', headerName: 'Bay' },
+  { field: 'location', headerName: 'Location' },
+  { field: 'productName', headerName: 'Product' },
+  { field: 'quantity', headerName: 'Quantity' },
+  { field: 'status', headerName: 'Status' },
+];
+
+export const STOCK_REPLENISHMENTS_STEPPER_DEF: HelStepperDef = {
+  steps: [
+    {
+      label: 'Replenish',
+      headline: 'Take %quantity% of %productName% to location %location% in aisle %aisleNumber%',
+      next: 'Done'
+    }
+  ]
+};
+
+
 export function simpleDataResolver(name: string, data: any): (route: ActivatedRouteSnapshot) => undefined | any[] {
   return (route: ActivatedRouteSnapshot) => {
     const id = route.paramMap.get(name);
