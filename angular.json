@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/helsinki-ui",
       "sourceRoot": "projects/helsinki-ui/src",
-      "prefix": "lib",
+      "prefix": "hel",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
