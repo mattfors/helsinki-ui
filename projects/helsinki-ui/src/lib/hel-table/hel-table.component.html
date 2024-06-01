@@ -1,4 +1,4 @@
-<table cdk-table [dataSource]="dataSource" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<table cdk-table [dataSource]="dataSource">
   <ng-container *ngFor="let def of _colDefs" [cdkColumnDef]="def.field">
     <thead>
     <th cdk-header-cell *cdkHeaderCellDef>{{ def.headerName }}</th>

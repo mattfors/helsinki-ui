@@ -1,19 +1,16 @@
-<div class="w-full max-w-4xl mx-auto">
-  <div class="bg-white  rounded-md px-4 py-6">
-    <div class="mb-6" *ngFor="let step of steps.toArray(); let i = index">
-      <div class="flex items-center mb-4">
-        <div class="flex-shrink-0 h-8 w-8 mr-3 flex items-center justify-center bg-blue-500 rounded-full text-white">
-          {{step.completed ? '✅' : i + 1}}
-        </div>
-        <div class="flex-1">
-          <h2 class="text-lg font-semibold"><ng-container *ngIf="step.stepLabel" [ngTemplateOutlet]="step.stepLabel.template"></ng-container></h2>
-          <p class="text-gray-600"><ng-container [ngTemplateOutlet]="step.stepContent ? step.stepContent.template : null"></ng-container></p>
-        </div>
-      </div>
-      <div class="flex justify-between">
-        <ng-container *ngIf="selected === step" [ngTemplateOutlet]="selected ? selected.content : null"></ng-container>
-      </div>
+<div *ngFor="let step of steps.toArray(); let i = index">
+  <div>
+    <div>
+      {{step.completed ? '✅' : i + 1}}
+    </div>
+    <div>
+      <h2><ng-container *ngIf="step.stepLabel" [ngTemplateOutlet]="step.stepLabel.template"></ng-container></h2>
+      <p><ng-container [ngTemplateOutlet]="step.stepContent ? step.stepContent.template : null"></ng-container></p>
     </div>
   </div>
+  <div>
+    <ng-container *ngIf="selected === step" [ngTemplateOutlet]="selected ? selected.content : null"></ng-container>
+  </div>
 </div>
+
 
