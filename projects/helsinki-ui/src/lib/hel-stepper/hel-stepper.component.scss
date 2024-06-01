@@ -1,0 +1,22 @@
+.hel-stepper-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.hel-stepper-step {
+  background-color: darkgrey;
+}
+
+.hel-stepper-content {
+
+}
+
+.hel-stepper-step-active {
+  background-color: orangered;
+}
+
+.hel-stepper-step-label {
+  padding: 5px;
+  background-color: cornflowerblue;
+}

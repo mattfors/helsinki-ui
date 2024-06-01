@@ -1,0 +1,22 @@
+<table cdk-table [dataSource]="dataSource" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+  <ng-container *ngFor="let def of _colDefs" [cdkColumnDef]="def.field">
+    <thead>
+    <th cdk-header-cell *cdkHeaderCellDef>{{ def.headerName }}</th>
+    </thead>
+
+    <td cdk-cell *cdkCellDef="let element">
+      <ng-container *ngIf="def.renderer">
+        <ng-container *ngComponentOutlet="
+        def.renderer?.component;
+        inputs: {data: element, config: def.renderer?.config};
+      " />
+      </ng-container>
+      <ng-container *ngIf="!def.renderer">
+        {{element[def.field]}}
+      </ng-container>
+    </td>
+  </ng-container>
+  <tr cdk-header-row *cdkHeaderRowDef="_cdkHeaderRowDef"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: _cdkHeaderRowDef;"></tr>
+</table>
+
