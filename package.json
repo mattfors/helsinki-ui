@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:helsinki-ui": "ng test helsinki-ui --watch=false --browsers ChromeHeadless --code-coverage",
+    "build:helsinki-ui": "ng build helsinki-ui",
+    "build:showcase:gh-pages": "ng build showcase --base-href=/helsinki-ui/"
   },
   "private": true,
   "dependencies": {
