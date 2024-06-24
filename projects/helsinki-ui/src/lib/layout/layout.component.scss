@@ -1,0 +1,20 @@
+.hel-layout-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.hel-layout-column {
+  border: solid;
+  background-color: orange;
+  margin: 5px;
+}
+
+.hel-layout-content {
+  flex: 1;
+}
+
+.hel-layout-actions {
+  display: flex;
+  flex-direction: column;
+}

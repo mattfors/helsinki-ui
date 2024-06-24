@@ -1,4 +1,6 @@
-<div *ngFor="let step of steps.toArray(); let i = index">
+<div *ngFor="let step of steps.toArray(); let i = index"
+     class="hel-stepper-step"
+     [class.hel-stepper-step-active]="selected === step">
   <div>
     <div>
       {{step.completed ? '✅' : i + 1}}

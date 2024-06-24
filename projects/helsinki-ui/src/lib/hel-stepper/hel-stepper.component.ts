@@ -18,7 +18,10 @@ import { HelStepComponent } from './hel-step.component';
   styleUrl: './hel-stepper.component.scss',
   providers: [{provide: CdkStepper, useExisting: HelStepperComponent}],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'hel-stepper-container'
+  }
 })
 export class HelStepperComponent extends CdkStepper {
 

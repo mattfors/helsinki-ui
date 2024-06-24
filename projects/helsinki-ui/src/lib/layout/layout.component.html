@@ -1,0 +1,11 @@
+<div class="hel-layout-container">
+  <div class="hel-layout-column" *ngFor="let column of _allColumns">
+    <ng-container *ngTemplateOutlet="column.template" ></ng-container>
+  </div>
+  <div class="hel-layout-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="hel-layout-actions" *ngFor="let action of _allActions">
+    <ng-container *ngTemplateOutlet="action.template" ></ng-container>
+  </div>
+</div>

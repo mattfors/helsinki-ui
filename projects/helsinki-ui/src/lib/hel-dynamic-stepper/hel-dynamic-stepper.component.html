@@ -1,0 +1,19 @@
+<hel-stepper>
+  <hel-step *ngFor="let def of steps">
+    <ng-template helStepLabel>
+      {{def.label}}
+    </ng-template>
+    <ng-template helStepHeadline>
+      {{renderTemplate(def.headline, record)}}
+    </ng-template>
+    <p>{{def.content}}</p>
+    <button helStepperNext>{{def.next}}</button>
+  </hel-step>
+  <hel-step>
+    <ng-template helStepLabel>
+      Complete
+    </ng-template>
+    <p>Loading...</p>
+    <button routerLink=".." (click)="stepperComplete()">Complete</button>
+  </hel-step>
+</hel-stepper>

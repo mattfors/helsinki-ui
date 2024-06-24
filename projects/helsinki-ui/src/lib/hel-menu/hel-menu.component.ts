@@ -17,7 +17,7 @@ export class HelMenuComponent {
 
   constructor(router: Router) {
     this.menuRoutes = router.config.filter(r => r.data?.["showInMenu"]);
-    router.events.subscribe(t => console.log('router event', t))
+    //router.events.subscribe(t => console.log('router event', t))
 
   }
 }

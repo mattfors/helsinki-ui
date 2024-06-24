@@ -1,3 +1,8 @@
 <nav>
-  <button *ngFor="let route of menuRoutes" [routerLink]="route.path" >{{route.title}}</button>
+  <ng-container *ngFor="let route of menuRoutes">
+    <button  [routerLink]="route.path" >{{route.title}}</button>
+    <ng-container *ngFor="let routeChild of route.children">
+      <button  [routerLink]="route.path +'/' + routeChild.path" >{{routeChild.title}}</button>
+    </ng-container>
+  </ng-container>
 </nav>
