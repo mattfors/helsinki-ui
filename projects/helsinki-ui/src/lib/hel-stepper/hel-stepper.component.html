@@ -1,18 +1,16 @@
-<div *ngFor="let step of steps.toArray(); let i = index"
-     class="hel-stepper-step"
-     [class.hel-stepper-step-active]="selected === step">
-  <div>
-    <div>
-      {{step.completed ? '✅' : i + 1}}
-    </div>
-    <div>
-      <h2><ng-container *ngIf="step.stepLabel" [ngTemplateOutlet]="step.stepLabel.template"></ng-container></h2>
-      <p><ng-container [ngTemplateOutlet]="step.stepContent ? step.stepContent.template : null"></ng-container></p>
-    </div>
-  </div>
-  <div>
-    <ng-container *ngIf="selected === step" [ngTemplateOutlet]="selected ? selected.content : null"></ng-container>
-  </div>
-</div>
-
+<mat-card appearance="outlined" *ngFor="let step of steps.toArray(); let i = index">
+  <mat-card-header>
+    <mat-icon mat-card-avatar  [fontIcon]="getIcon(step)"></mat-icon>
+    <mat-card-title *ngIf="step.stepLabel" ><ng-container [ngTemplateOutlet]="step.stepLabel.template"></ng-container></mat-card-title>
+    <mat-card-subtitle *ngIf="step.stepHeadline">
+      <ng-container [ngTemplateOutlet]="step.stepHeadline ? step.stepHeadline.template : null"></ng-container>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <ng-container *ngIf="selected === step" [ngTemplateOutlet]="selected ? selected.content : null"></ng-container>
+  </mat-card-content>
+  <mat-card-actions>
+    <ng-container *ngIf="selected === step" [ngTemplateOutlet]="step.actions ? step.actions.template : null"></ng-container>
+  </mat-card-actions>
+</mat-card>
 

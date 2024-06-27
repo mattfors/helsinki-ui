@@ -1,9 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HelStepComponent, HelStepHeadlineDirective, HelStepLabelDirective } from '../hel-stepper/hel-step.component';
+import {
+  HelStepActionsDirective,
+  HelStepComponent,
+  HelStepHeadlineDirective,
+  HelStepLabelDirective
+} from '../hel-stepper/hel-step.component';
 import { HelStepperComponent } from '../hel-stepper/hel-stepper.component';
 import { HelStepperNextDirective } from '../hel-stepper/hel-stepper-button.directive';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HelActionButtonComponent } from '../hel-action-button/hel-action-button.component';
 
 export interface HelStepDef {
   label: string;
@@ -20,7 +26,7 @@ export interface HelStepperDef {
 @Component({
   selector: 'hel-route-stepper',
   standalone: true,
-  imports: [CommonModule, HelStepComponent, HelStepHeadlineDirective, HelStepLabelDirective, HelStepperComponent, HelStepperNextDirective, RouterLink],
+  imports: [CommonModule, HelStepComponent, HelStepHeadlineDirective, HelStepLabelDirective, HelStepperComponent, HelStepperNextDirective, RouterLink, HelActionButtonComponent, HelStepActionsDirective],
   templateUrl: './hel-route-stepper.component.html',
   styleUrl: './hel-route-stepper.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

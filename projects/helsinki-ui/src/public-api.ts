@@ -13,3 +13,5 @@ export * from './lib/hel-menu/hel-menu.component'
 
 export * from './lib/layout/hel-layout.module'
 export * from './lib/hel-stepper/hel-stepper.module'
+export * from './lib/hel-action-button/hel-action-button.component'
+export * from './lib/hel-list-column/hel-list-column.component'

@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { HelStepComponent, HelStepHeadlineDirective, HelStepLabelDirective } from './hel-step.component';
+import {
+  HelStepActionsDirective,
+  HelStepComponent,
+  HelStepHeadlineDirective,
+  HelStepLabelDirective
+} from './hel-step.component';
 import { HelStepperComponent } from './hel-stepper.component';
 import { HelStepperNextDirective } from './hel-stepper-button.directive';
 
@@ -11,14 +16,16 @@ import { HelStepperNextDirective } from './hel-stepper-button.directive';
     HelStepHeadlineDirective,
     HelStepLabelDirective,
     HelStepperComponent,
-    HelStepperNextDirective
+    HelStepperNextDirective,
+    HelStepActionsDirective
   ],
   exports: [
     HelStepComponent,
     HelStepHeadlineDirective,
     HelStepLabelDirective,
     HelStepperComponent,
-    HelStepperNextDirective
+    HelStepperNextDirective,
+    HelStepActionsDirective
   ]
 })
 export class HelStepperModule { }

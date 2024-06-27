@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, ContentChild, Directive, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  ContentChildren,
+  Directive, QueryList,
+  ViewEncapsulation
+} from '@angular/core';
 import { CdkStep, CdkStepLabel } from '@angular/cdk/stepper';
+import { HelActionButtonComponent } from '../hel-action-button/hel-action-button.component';
 
 @Directive({
   selector: '[helStepLabel]',
@@ -12,6 +20,12 @@ export class HelStepLabelDirective extends CdkStepLabel {}
   standalone: true,
 })
 export class HelStepHeadlineDirective extends CdkStepLabel{}
+
+@Directive({
+  selector: '[helStepActions]',
+  standalone: true,
+})
+export class HelStepActionsDirective extends CdkStepLabel{}
 
 @Component({
   selector: 'hel-step',
@@ -28,5 +42,7 @@ export class HelStepComponent extends CdkStep {
 
   @ContentChild(HelStepLabelDirective) override stepLabel: HelStepLabelDirective = undefined!;
 
-  @ContentChild(HelStepHeadlineDirective)  stepContent: HelStepHeadlineDirective = undefined!;
+  @ContentChild(HelStepHeadlineDirective)  stepHeadline: HelStepHeadlineDirective = undefined!;
+
+  @ContentChild(HelStepActionsDirective)  actions: HelStepActionsDirective = undefined!;
 }

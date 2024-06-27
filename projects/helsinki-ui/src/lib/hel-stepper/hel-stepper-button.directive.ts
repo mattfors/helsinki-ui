@@ -2,7 +2,7 @@ import { Directive } from '@angular/core';
 import { CdkStepperNext } from '@angular/cdk/stepper';
 
 @Directive({
-  selector: 'button[helStepperNext]',
+  selector: 'hel-action-button[helStepperNext], button[helStepperNext]',
   standalone: true,
 })
 export class HelStepperNextDirective extends CdkStepperNext {}

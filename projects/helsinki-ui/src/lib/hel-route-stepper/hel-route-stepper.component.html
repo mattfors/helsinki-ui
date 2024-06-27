@@ -7,13 +7,13 @@
       {{renderTemplate(def.headline, record)}}
     </ng-template>
     <p>{{def.content}}</p>
-    <button helStepperNext>{{def.next}}</button>
+    <ng-template helStepActions><hel-action-button helStepperNext>{{def.next}}</hel-action-button></ng-template>
   </hel-step>
   <hel-step>
     <ng-template helStepLabel>
       Complete
     </ng-template>
     <p>Loading...</p>
-    <button routerLink=".." (click)="stepperComplete()">Complete</button>
+    <ng-template helStepActions><hel-action-button routerLink=".." (click)="stepperComplete()">Complete</hel-action-button></ng-template>
   </hel-step>
 </hel-stepper>
