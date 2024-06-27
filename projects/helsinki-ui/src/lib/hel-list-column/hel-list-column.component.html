@@ -1,0 +1,37 @@
+<button mat-icon-button (click)="isCollapsed = !isCollapsed">
+  <mat-icon>{{isCollapsed ? 'chevron_right' : 'chevron_left'}}</mat-icon>
+</button>
+<div cdkDropListGroup class="hel-list-column">
+
+  <mat-list
+    cdkDropList
+    (cdkDropListDropped)="onDrop($event)"
+    [cdkDropListData]="_items"
+    style="height: 100%; min-width: 50px">
+    <mat-list-item *ngFor="let child of _items; index as i" cdkDrag >
+        <ng-container *ngTemplateOutlet="child.templateRef" ></ng-container>
+    </mat-list-item>
+    <mat-list-item *ngIf="_items.length === 0 && !isCollapsed">
+      drag here
+    </mat-list-item>
+  </mat-list>
+  <mat-card appearance="outlined" style="height: 100%"  *ngIf="!isCollapsed">
+    <mat-card-content style="height: 100%">
+      <mat-list
+        cdkDropList
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="_itemsHidden"
+        style="height: 100%; min-width: 100px">
+
+        <mat-list-item *ngFor="let child of _itemsHidden; index as i" cdkDrag class="layout-hud-drag-item" >
+          <ng-container *ngTemplateOutlet="child.templateRef" ></ng-container>
+        </mat-list-item>
+        <mat-list-item style="" *ngIf="_itemsHidden.length === 0" >
+
+        </mat-list-item>
+
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+</div>
